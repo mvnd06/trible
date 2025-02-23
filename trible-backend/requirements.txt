@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+openai
+chromadb
+numpy
+requests
+beautifulsoup4
+python-dotenv
+websockets
