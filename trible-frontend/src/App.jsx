@@ -1,47 +1,64 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+import { useState, useEffect, useRef } from "react";
+import ChatView from "./components/ChatView";
+import Sidebar from "./components/Sidebar";
 
-// function App() {
-//   const [count, setCount] = useState(0)
+export default function App() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [activeModule, setActiveModule] = useState(0);
+  const [activeScenario, setActiveScenario] = useState(0);
+  const socket = useRef(null);
 
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
+  useEffect(() => {
+    socket.current = new WebSocket("ws://localhost:8000/ws");
 
-// export default App
+    socket.current.onopen = () => {
+      console.log("✅ Connected to WebSocket server");
+    };
 
-import ChatInterface from "./components/ChatInterface";
+    socket.current.onmessage = (event) => {
+      const botMessage = { sender: "bot", text: event.data };
+      setMessages((prev) => [...prev, botMessage]);
+    };
 
-function App() {
+    socket.current.onerror = (error) => {
+      console.error("WebSocket Error:", error);
+    };
+
+    socket.current.onclose = () => {
+      console.log("❌ Disconnected from WebSocket server");
+    };
+
+    return () => {
+      socket.current.close();
+    };
+  }, []);
+
+  const sendMessage = () => {
+    if (!input.trim() || !socket.current) return;
+    const userMessage = { sender: "user", text: input };
+    setMessages([...messages, userMessage]);
+    socket.current.send(input);
+    setInput("");
+  };
+
   return (
-    <div className="App">
-      <ChatInterface />
+    <div className="flex h-screen bg-gray-900 text-white">
+      <Sidebar
+        activeModule={activeModule}
+        setActiveModule={setActiveModule}
+        activeScenario={activeScenario}
+        setActiveScenario={setActiveScenario}
+        setMessages={setMessages}
+      />
+      <ChatView
+        messages={messages}
+        input={input}
+        setInput={setInput}
+        sendMessage={sendMessage}
+        activeModule={activeModule}
+        activeScenario={activeScenario}
+      />
     </div>
   );
 }
-
-export default App;
