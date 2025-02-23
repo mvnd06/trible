@@ -10,4 +10,4 @@ __pycache__/
 .env
 
 # Ignore database files
-chromadb/
+chroma_db/
