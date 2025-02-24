@@ -22,6 +22,7 @@ app.add_middleware(
         "https://trible-frontend-d8y9soypj-armands-projects-a6f02fc2.vercel.app",
         "https://trible-frontend.vercel.app",
         "https://trible.ai",
+        "https://www.trible.ai",
     ],  # Change this if your frontend URL changes
     allow_credentials=True,
     allow_methods=["*"],
