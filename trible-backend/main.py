@@ -20,6 +20,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://trible-frontend-d8y9soypj-armands-projects-a6f02fc2.vercel.app",
+        "https://trible-frontend.vercel.app",
         "https://trible.ai",
     ],  # Change this if your frontend URL changes
     allow_credentials=True,
