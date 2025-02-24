@@ -17,7 +17,11 @@ app = FastAPI()
 # ✅ Enable CORS to allow frontend to access API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Change this if your frontend URL changes
+    allow_origins=[
+        "http://localhost:5173",
+        "https://trible-frontend-4adrdgzo9-armands-projects-a6f02fc2.vercel.app",
+        "https://trible.ai",
+    ],  # Change this if your frontend URL changes
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

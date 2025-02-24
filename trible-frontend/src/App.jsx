@@ -18,7 +18,7 @@ export default function App() {
         setMessages((prev) => [...prev, userMessage]);
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/chat/${scenarioId}/step/${currentStep}`, {
+            const response = await fetch(`http://trible-production.up.railway.app:8080/chat/${scenarioId}/step/1`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: input })
