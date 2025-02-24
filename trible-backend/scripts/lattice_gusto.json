@@ -1,0 +1,136 @@
+{
+    "id": "lattice_gusto",
+    "module": "Lattice HRIS + Gusto Integration",
+    "title": "Lattice Gusto Integration Troubleshooting",
+    "difficulty_level": "medium",
+    "steps": [
+        {
+            "step_id": 1,
+            "customer_prompt": "I’ve been trying to integrate Lattice with Gusto, but I keep running into issues. The documentation isn’t very clear, and I’ve already wasted hours on this. Why is this so complicated?",
+            "expected_responses": [
+                "I think I can help you with that. Can you tell me more about the specific issue you're encountering?"
+            ],
+            "next_step_id": 2
+        },
+        {
+            "step_id": 2,
+            "customer_prompt": "Well, I followed the instructions to enable the integration, but I’m not seeing any employee data syncing between Lattice and Gusto. I’ve double-checked my credentials, and everything seems correct on my end.",
+            "expected_responses": [
+                "I definitely understand. Unfortunately, this is a common issue some users face. There’s an open troubleshooting guide for it. In the meantime, I can walk you through verifying the integration settings. Would that be okay?"
+            ],
+            "next_step_id": 3
+        },
+        {
+            "step_id": 3,
+            "customer_prompt": "Fine, but my main concern is that I don’t have full admin access in Gusto. Will I need to change any settings there?",
+            "expected_responses": [
+                "I can send over some resources to help clarify the necessary permissions. In the meantime, let’s check if your API connection is correctly linked to Lattice."
+            ],
+            "next_step_id": 4
+        },
+        {
+            "step_id": 4,
+            "customer_prompt": "Alright, that works. If you can guide me through the process, I’d appreciate it. Just don’t let this take too long—we need this integration up and running ASAP.",
+            "expected_responses": [
+                "I’ll be your partner through this. Do you have access to Gusto’s **Integrations** page?"
+            ],
+            "next_step_id": 5
+        },
+        {
+            "step_id": 5,
+            "customer_prompt": "Yes, but I’m not sure if I have the right permissions to modify anything. What do you need me to check?",
+            "expected_responses": [
+                "Can you confirm whether Lattice is listed under the **Connected Apps** section in Gusto?"
+            ],
+            "next_step_id": 6
+        },
+        {
+            "step_id": 6,
+            "customer_prompt": "I don’t see Lattice listed there. Does that mean the integration isn’t set up correctly?",
+            "expected_responses": [
+                "Yes, that could be the issue. You’ll need to authorize the integration in Gusto. Would you like help setting that up?"
+            ],
+            "next_step_id": 7
+        },
+        {
+            "step_id": 7,
+            "customer_prompt": "Yes, please. How do I authorize the integration?",
+            "expected_responses": [
+                "Try this:\n- Go to **Lattice Admin > Integrations**\n- Click **Connect Gusto**\n- Sign in with your Gusto admin credentials\n- Authorize Lattice to access employee data\n- Once authorized, check if Lattice appears in the **Connected Apps** list in Gusto."
+            ],
+            "next_step_id": 8
+        },
+        {
+            "step_id": 8,
+            "customer_prompt": "Alright, I just authorized the connection. Now it says 'Connected.' Does that mean it’s working?",
+            "expected_responses": [
+                "That’s a good sign! But let’s confirm that employee data is syncing properly. Have you tried running a manual sync?"
+            ],
+            "next_step_id": 9
+        },
+        {
+            "step_id": 9,
+            "customer_prompt": "No, I didn’t see an option for that. Where do I go to trigger a sync?",
+            "expected_responses": [
+                "In Lattice, go to **Integrations > Gusto > Sync Now**. Give it a few minutes and check if employee data appears."
+            ],
+            "next_step_id": 10
+        },
+        {
+            "step_id": 10,
+            "customer_prompt": "Alright, I just triggered the sync. Should I see data appear immediately?",
+            "expected_responses": [
+                "It may take a few minutes. If nothing appears, we may need to check the log for any errors. Do you see any sync errors in the Integration Logs?"
+            ],
+            "next_step_id": 11
+        },
+        {
+            "step_id": 11,
+            "customer_prompt": "Actually, yes—I see an error that says 'Permission denied: Employee Data.' What does that mean?",
+            "expected_responses": [
+                "It sounds like the integration doesn’t have the correct permissions. Let’s double-check that in **Gusto’s Integration Settings**."
+            ],
+            "next_step_id": 12
+        },
+        {
+            "step_id": 12,
+            "customer_prompt": "Okay, I went back and granted the necessary permissions. Should I try the sync again?",
+            "expected_responses": [
+                "Yes, now that the integration has the correct access, try syncing again and see if employee data starts appearing."
+            ],
+            "next_step_id": 13
+        },
+        {
+            "step_id": 13,
+            "customer_prompt": "Alright, I’m running the sync again… Hold on… Yes! I see employee data coming into Lattice now!",
+            "expected_responses": [
+                "Perfect! Now, you should be able to automate this process so Lattice pulls updates from Gusto regularly. Do you want me to walk you through setting that up?"
+            ],
+            "next_step_id": 14
+        },
+        {
+            "step_id": 14,
+            "customer_prompt": "Yes, that would be great. I want to make sure this runs automatically going forward.",
+            "expected_responses": [
+                "Go to **Lattice Admin > Integrations > Gusto** and enable **Auto-Sync**. This will update your data automatically every night."
+            ],
+            "next_step_id": 15
+        },
+        {
+            "step_id": 15,
+            "customer_prompt": "Got it! I just enabled Auto-Sync. That should save us a lot of manual work. Thank you for walking me through this!",
+            "expected_responses": [
+                "Awesome! And just to ensure everything keeps running smoothly, I’ll send over some resources on **integration troubleshooting and permission settings**. Is there anything else I can help you with?"
+            ],
+            "next_step_id": 16
+        },
+        {
+            "step_id": 16,
+            "customer_prompt": "No, I think we’re all set. I really appreciate your help—it was way easier with your guidance!",
+            "expected_responses": [
+                "Glad to help! If you ever run into any other issues, feel free to reach out. Have a great day!"
+            ],
+            "next_step_id": null
+        }
+    ]
+}

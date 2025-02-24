@@ -1,10 +1,13 @@
 const API_BASE_URL = "http://127.0.0.1:8000"; // Backend FastAPI URL
 
 const modules = [
-    { name: "Module 1", scenarios: [ {name: "Test"}, { id: "lattice_adp_troubleshooting", name: "Lattice ADP Integration" }] },
-    { name: "Module 2", scenarios: [] },
-    { name: "Module 3", scenarios: [] },
-    { name: "Module 4", scenarios: [] },
+    { name: "Lattice Scenarios", scenarios: [ 
+        { id: "lattice_adp", name: "Lattice / ADP Integration" },
+        { id: "lattice_trinet", name: "Lattice / TriNet Integration" },
+        { id: "lattice_gusto", name: "Lattice / Gusto Integration" },
+        { id: "lattice_greenhouse", name: "Lattice / Greenhouse Integration" }
+    ]},
+    { name: "Future Scenarios", scenarios: []},
 ];
 
 export default function Sidebar({ activeModule, setActiveModule, activeScenario, setActiveScenario, setMessages, setScenarioId }) {
