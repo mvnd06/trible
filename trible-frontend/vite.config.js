@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://trible-production.up.railway.app:8000",
+        target: "https://trible-production.up.railway.app",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
