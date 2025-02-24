@@ -8,6 +8,7 @@ export default function App() {
     const [activeModule, setActiveModule] = useState(0);
     const [activeScenario, setActiveScenario] = useState(0);
     const [scenarioId, setScenarioId] = useState(null);
+    const [scenarioName, setScenarioName] = useState(""); 
     const [currentStep, setCurrentStep] = useState(1);  // ✅ Track the current step properly
 
     const sendMessage = async () => {
@@ -53,6 +54,7 @@ export default function App() {
                 setActiveScenario={setActiveScenario}
                 setMessages={setMessages}
                 setScenarioId={setScenarioId}
+                setScenarioName={setScenarioName}
                 setCurrentStep={setCurrentStep}  // ✅ Reset step when switching scenarios
             />
             <ChatView
@@ -63,6 +65,7 @@ export default function App() {
                 activeModule={activeModule}
                 activeScenario={activeScenario}
                 scenarioId={scenarioId}
+                scenarioName={scenarioName}
             />
         </div>
     );

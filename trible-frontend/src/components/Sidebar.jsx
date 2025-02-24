@@ -10,8 +10,8 @@ const modules = [
     { name: "Future Scenarios", scenarios: []},
 ];
 
-export default function Sidebar({ activeModule, setActiveModule, activeScenario, setActiveScenario, setMessages, setScenarioId }) {
-    const fetchFirstStep = async (scenarioId) => {
+export default function Sidebar({ activeModule, setActiveModule, activeScenario, setActiveScenario, setMessages, setScenarioId, setScenarioName }) {
+    const fetchFirstStep = async (scenarioId, scenarioName) => {
         try {
             setMessages([]); // Clear previous messages immediately
     
@@ -21,6 +21,7 @@ export default function Sidebar({ activeModule, setActiveModule, activeScenario,
             const data = await response.json();
             setMessages([{ sender: "bot", text: data.customer_prompt }]);
             setScenarioId(scenarioId); // Store the selected scenario ID
+            setScenarioName(scenarioName);
         } catch (error) {
             console.error("Error fetching step:", error);
         }
@@ -28,7 +29,7 @@ export default function Sidebar({ activeModule, setActiveModule, activeScenario,
 
     return (
         <div className="w-64 bg-blue-900 p-4 flex flex-col">
-            <h1 className="text-lg font-bold mb-4">trible.ai</h1>
+            <h1 className="text-3xl font-bold mb-4">trible.ai</h1>
             {modules.map((module, moduleIndex) => (
                 <div key={moduleIndex} className="mb-4">
                     <h2 className="text-md font-semibold mb-2">{module.name}</h2>
@@ -42,7 +43,7 @@ export default function Sidebar({ activeModule, setActiveModule, activeScenario,
                                 setActiveModule(moduleIndex);
                                 setActiveScenario(scenarioIndex);
                                 setMessages([]); // Reset chat
-                                fetchFirstStep(scenario.id);
+                                fetchFirstStep(scenario.id, scenario.name);
                             }}
                         >
                             {scenario.name}

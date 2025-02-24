@@ -14,21 +14,19 @@ const CardContent = ({ children, innerRef }) => (
   </div>
 );
 
-export default function ChatView({ messages, input, setInput, sendMessage, activeModule, activeScenario, scenarioId }) {
+export default function ChatView({ messages, input, setInput, sendMessage, scenarioId, scenarioName }) {
   const messagesEndRef = useRef(null);
 
-  // Ensure chat scrolls to the bottom when messages update
   useEffect(() => {
-    console.log("ChatView updated. Messages:", messages);
     if (messagesEndRef.current) {
-        messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
     }
   }, [messages]);
 
   return (
     <div className="flex-1 flex flex-col items-center justify-between p-6 h-screen">
       <h2 className="text-xl font-bold mb-4">
-        {scenarioId ? "Scenario in Progress" : "Select a Scenario"}
+        {scenarioId ? scenarioName : "Select a Scenario"}  {/* ✅ Show scenario name */}
       </h2>
       <Card className="w-full max-w-2xl shadow-lg border border-gray-700 rounded-2xl overflow-hidden">
         <CardContent innerRef={messagesEndRef}>
@@ -56,7 +54,6 @@ export default function ChatView({ messages, input, setInput, sendMessage, activ
               </motion.div>
             ))
           )}
-          <div ref={messagesEndRef}></div>
         </CardContent>
       </Card>
       <div className="mt-4 flex w-full max-w-2xl sticky bottom-4 bg-gray-900 p-4 rounded-lg">
