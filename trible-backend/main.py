@@ -5,7 +5,9 @@ import rag
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, WebSocket
- 
+from fastapi.middleware.cors import CORSMiddleware
+from routes.chat import router as chat_router
+
 # Init - OpenAI Client
 load_dotenv()  # Load API key from .env filez
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -22,8 +24,19 @@ async def generate_ai_response(prompt):
     return response.choices[0].message.content
 
 
-
 app = FastAPI()
+
+# ✅ Enable CORS to allow frontend to access API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Change this if your frontend URL changes
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include the chat step-based routing
+app.include_router(chat_router)
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
