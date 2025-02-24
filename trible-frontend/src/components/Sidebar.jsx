@@ -10,19 +10,14 @@ const modules = [
 export default function Sidebar({ activeModule, setActiveModule, activeScenario, setActiveScenario, setMessages, setScenarioId }) {
     const fetchFirstStep = async (scenarioId) => {
         try {
-            setMessages([]); // Reset messages before fetching
-            console.log("Fetching first step for:", scenarioId);
+            setMessages([]); // Clear previous messages immediately
     
             const response = await fetch(`${API_BASE_URL}/chat/${scenarioId}/step/1`);
             if (!response.ok) throw new Error("Failed to fetch step");
-    
+            
             const data = await response.json();
-            console.log("Fetched step:", data); // Debugging output
-    
-            setMessages([{ sender: "bot", text: data.customer_prompt }]); // Update chat
-            console.log("Messages state updated:", [{ sender: "bot", text: data.customer_prompt }]);
-    
-            setScenarioId(scenarioId);
+            setMessages([{ sender: "bot", text: data.customer_prompt }]);
+            setScenarioId(scenarioId); // Store the selected scenario ID
         } catch (error) {
             console.error("Error fetching step:", error);
         }

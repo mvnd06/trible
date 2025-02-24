@@ -15,13 +15,6 @@ const CardContent = ({ children, innerRef }) => (
 );
 
 export default function ChatView({ messages, input, setInput, sendMessage, activeModule, activeScenario, scenarioId }) {
-  const modules = [
-    { name: "Module 1", scenarios: [{ id: "lattice_adp_troubleshooting", name: "Lattice ADP Integration" }] },
-    { name: "Module 2", scenarios: [] },
-    { name: "Module 3", scenarios: [] },
-    { name: "Module 4", scenarios: [] },
-  ];
-
   const messagesEndRef = useRef(null);
 
   // Ensure chat scrolls to the bottom when messages update
@@ -30,12 +23,12 @@ export default function ChatView({ messages, input, setInput, sendMessage, activ
     if (messagesEndRef.current) {
         messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
     }
-}, [messages]);
+  }, [messages]);
 
   return (
     <div className="flex-1 flex flex-col items-center justify-between p-6 h-screen">
       <h2 className="text-xl font-bold mb-4">
-        {scenarioId ? modules[activeModule].scenarios[activeScenario]?.name || "Select a Scenario" : "Select a Scenario"}
+        {scenarioId ? "Scenario in Progress" : "Select a Scenario"}
       </h2>
       <Card className="w-full max-w-2xl shadow-lg border border-gray-700 rounded-2xl overflow-hidden">
         <CardContent innerRef={messagesEndRef}>

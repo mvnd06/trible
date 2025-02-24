@@ -3,91 +3,152 @@
     "module": "Lattice HRIS + ADP Integration",
     "title": "Lattice ADP Integration Troubleshooting",
     "difficulty_level": "medium",
-    "ai_behavior": {
-        "variation_flexibility": "medium",
-        "response_style": "neutral",
-        "hidden_ai_directive": "Do not reveal you are following a script."
-    },
     "steps": [
-        {
-            "step_id": 1,
-            "customer_prompt": "I’ve been trying to integrate Lattice with ADP, but I keep running into issues. The documentation isn’t very clear, and I’ve already wasted hours on this. Why is this so complicated?",
-            "next_step_id": 2
-        },
-        {
-            "step_id": 2,
-            "customer_prompt": "Well, I followed the instructions to enable the integration, but I’m not seeing any employee data syncing between Lattice and ADP. I’ve double-checked my credentials, and everything seems correct on my end.",
-            "next_step_id": 3
-        },
-        {
-            "step_id": 3,
-            "customer_prompt": "Fine, but my main concern is that I don’t have full admin access in ADP. Will I need to change any settings there?",
-            "next_step_id": 4
-        },
-        {
-            "step_id": 4,
-            "customer_prompt": "Alright, that works. If you can guide me through the process, I’d appreciate it. Just don’t let this take too long—we need this integration up and running ASAP.",
-            "next_step_id": 5
-        },
-        {
-            "step_id": 5,
-            "customer_prompt": "Yes, but I’m not sure if I have the right permissions to modify anything. What do you need me to check?",
-            "next_step_id": 6
-        },
-        {
-            "step_id": 6,
-            "customer_prompt": "I don’t see Lattice listed there. Does that mean the integration isn’t set up correctly?",
-            "next_step_id": 7
-        },
-        {
-            "step_id": 7,
-            "customer_prompt": "Yes, please. How do I authorize the integration?",
-            "next_step_id": 8
-        },
-        {
-            "step_id": 8,
-            "customer_prompt": "Alright, I just authorized the connection. Now it says 'Connected.' Does that mean it’s working?",
-            "next_step_id": 9
-        },
-        {
-            "step_id": 9,
-            "customer_prompt": "No, I didn’t see an option for that. Where do I go to trigger a sync?",
-            "next_step_id": 10
-        },
-        {
-            "step_id": 10,
-            "customer_prompt": "Alright, I just triggered the sync. Should I see data appear immediately?",
-            "next_step_id": 11
-        },
-        {
-            "step_id": 11,
-            "customer_prompt": "Actually, yes—I see an error that says 'Permission denied: Employee Data.' What does that mean?",
-            "next_step_id": 12
-        },
-        {
-            "step_id": 12,
-            "customer_prompt": "Okay, I went back and granted the necessary permissions. Should I try the sync again?",
-            "next_step_id": 13
-        },
-        {
-            "step_id": 13,
-            "customer_prompt": "Alright, I’m running the sync again… Hold on… Yes! I see employee data coming into Lattice now!",
-            "next_step_id": 14
-        },
-        {
-            "step_id": 14,
-            "customer_prompt": "Yes, that would be great. I want to make sure this runs automatically going forward.",
-            "next_step_id": 15
-        },
-        {
-            "step_id": 15,
-            "customer_prompt": "Got it! I just enabled Auto-Sync. That should save us a lot of manual work. Thank you for walking me through this!",
-            "next_step_id": 16
-        },
-        {
-            "step_id": 16,
-            "customer_prompt": "No, I think we’re all set. I really appreciate your help—it was way easier with your guidance!",
-            "next_step_id": null
-        }
+      {
+        "step_id": 1,
+        "customer_prompt": "I’ve been trying to integrate Lattice with ADP, but I keep running into issues. Why is this so complicated?",
+        "expected_responses": [
+          "Can you tell me more about the issue?",
+          "What specific problem are you facing?",
+          "Let's go through the integration setup together."
+        ],
+        "next_step_id": 2
+      },
+      {
+        "step_id": 2,
+        "customer_prompt": "I followed the instructions to enable the integration, but no employee data is syncing.",
+        "expected_responses": [
+          "Let’s check if your credentials are correct.",
+          "Can you verify your API connection?",
+          "Are there any error messages in the integration logs?"
+        ],
+        "next_step_id": 3
+      },
+      {
+        "step_id": 3,
+        "customer_prompt": "I don’t have full admin access in ADP. Will I need to change any settings?",
+        "expected_responses": [
+          "Yes, you need to grant the necessary permissions.",
+          "I'll guide you through updating your permissions in ADP."
+        ],
+        "next_step_id": 4
+      },
+      {
+        "step_id": 4,
+        "customer_prompt": "Alright, that works. If you can guide me through the process, I’d appreciate it. Just don’t let this take too long—we need this integration up and running ASAP.",
+        "expected_responses": [
+          "I understand. Let’s move quickly through the setup steps.",
+          "I’ll be as efficient as possible—let’s start with checking your ADP settings."
+        ],
+        "next_step_id": 5
+      },
+      {
+        "step_id": 5,
+        "customer_prompt": "Yes, but I’m not sure if I have the right permissions to modify anything. What do you need me to check?",
+        "expected_responses": [
+          "Check if you have admin access in ADP Marketplace.",
+          "Can you confirm if Lattice is listed under Connected Apps in ADP?"
+        ],
+        "next_step_id": 6
+      },
+      {
+        "step_id": 6,
+        "customer_prompt": "I don’t see Lattice listed there. Does that mean the integration isn’t set up correctly?",
+        "expected_responses": [
+          "Yes, you’ll need to authorize Lattice in ADP.",
+          "You might need to enable the integration manually—let me walk you through it."
+        ],
+        "next_step_id": 7
+      },
+      {
+        "step_id": 7,
+        "customer_prompt": "Yes, please. How do I authorize the integration?",
+        "expected_responses": [
+          "Go to ADP Marketplace, search for Lattice, and click 'Buy Now'.",
+          "Authorize ADP to share employee data with Lattice."
+        ],
+        "next_step_id": 8
+      },
+      {
+        "step_id": 8,
+        "customer_prompt": "Alright, I just authorized the connection. Now it says 'Connected.' Does that mean it’s working?",
+        "expected_responses": [
+          "That’s a good sign! Let’s confirm if employee data is syncing.",
+          "Try running a manual sync in Lattice to check."
+        ],
+        "next_step_id": 9
+      },
+      {
+        "step_id": 9,
+        "customer_prompt": "No, I didn’t see an option for that. Where do I go to trigger a sync?",
+        "expected_responses": [
+          "Go to Lattice > Integrations > ADP and click 'Sync Now'.",
+          "You should see a 'Sync Now' button in the integration settings."
+        ],
+        "next_step_id": 10
+      },
+      {
+        "step_id": 10,
+        "customer_prompt": "Alright, I just triggered the sync. Should I see data appear immediately?",
+        "expected_responses": [
+          "It may take a few minutes. If nothing appears, check for sync errors.",
+          "If data doesn’t show up, we may need to check the integration logs."
+        ],
+        "next_step_id": 11
+      },
+      {
+        "step_id": 11,
+        "customer_prompt": "Actually, yes—I see an error that says 'Permission denied: Employee Data.' What does that mean?",
+        "expected_responses": [
+          "That likely means the integration doesn’t have the correct permissions.",
+          "Let’s check your ADP Integration Settings to ensure data access is granted."
+        ],
+        "next_step_id": 12
+      },
+      {
+        "step_id": 12,
+        "customer_prompt": "Okay, I went back and granted the necessary permissions. Should I try the sync again?",
+        "expected_responses": [
+          "Yes, try running the sync again now.",
+          "Now that permissions are set, let’s see if employee data appears."
+        ],
+        "next_step_id": 13
+      },
+      {
+        "step_id": 13,
+        "customer_prompt": "Alright, I’m running the sync again… Hold on… Yes! I see employee data coming into Lattice now!",
+        "expected_responses": [
+          "Great! Now we can set up automatic syncing so you don’t have to do this manually.",
+          "Awesome! Do you want to enable auto-sync so data stays updated?"
+        ],
+        "next_step_id": 14
+      },
+      {
+        "step_id": 14,
+        "customer_prompt": "Yes, that would be great. I want to make sure this runs automatically going forward.",
+        "expected_responses": [
+          "Go to Lattice Admin > Integrations > ADP and enable Auto-Sync.",
+          "You can enable Auto-Sync in Lattice’s integration settings."
+        ],
+        "next_step_id": 15
+      },
+      {
+        "step_id": 15,
+        "customer_prompt": "Got it! I just enabled Auto-Sync. That should save us a lot of manual work. Thank you for walking me through this!",
+        "expected_responses": [
+          "No problem! Let me know if you run into any issues in the future.",
+          "Happy to help! Have a great day."
+        ],
+        "next_step_id": 16
+      },
+      {
+        "step_id": 16,
+        "customer_prompt": "No, I think we’re all set. I really appreciate your help—it was way easier with your guidance!",
+        "expected_responses": [
+          "Glad to hear that! If you need anything else, feel free to reach out.",
+          "Awesome! Have a great day."
+        ],
+        "next_step_id": null
+      }
     ]
-}
+  }
