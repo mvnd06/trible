@@ -1,4 +1,4 @@
-const API_BASE_URL = "trible-production.up.railway.app:8080"; // Backend FastAPI URL
+const API_BASE_URL = "https://trible-production.up.railway.app:8000"; // Backend FastAPI URL
 
 const modules = [
     { name: "Lattice Scenarios", scenarios: [ 
